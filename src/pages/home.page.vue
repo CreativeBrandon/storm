@@ -1,14 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Header from '../components/Header.vue'
+</script>
 
 <template>
   <main class="container">
-    <img src="../assets/logo.svg" class="logo" alt="Storm logo" />
+    <Header />
   </main>
 </template>
 
-<style scoped>
-.logo {
-  height: 44px;
-  width: 210px;
-}
-</style>
+<style scoped></style>

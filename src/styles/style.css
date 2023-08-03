@@ -15,6 +15,20 @@ body,
   max-width: 1186px;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 80px 0;
   overflow-y: auto;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a:focus,
+button:focus {
+  outline: 1px solid var(--primary-main);
+}
+
+.round {
+  border-radius: 9999px;
 }

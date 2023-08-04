@@ -4,8 +4,15 @@ import NotificationIcon from './icons/notification.vue'
 import SettingsIcon from './icons/settings.vue'
 import UserIcon from './icons/iconUser.vue'
 import Logo from './icons/logo.vue'
+import Search from './search.vue'
+import { store } from '../store'
 
 const user = { fullName: 'Adriana Arias' }
+
+const handleSearch = (term: string) => {
+  store.searchTerm = term
+  store.results = store.data.filter((item) => item.product.toLowerCase().includes(term.toLowerCase()))
+}
 </script>
 
 <template>
@@ -14,7 +21,9 @@ const user = { fullName: 'Adriana Arias' }
       <Logo />
     </div>
 
-    <div class="header-center"></div>
+    <div class="header-center">
+      <Search :onChange="handleSearch" />
+    </div>
 
     <div class="header-right">
       <Button title="Settings" class="center icon settings">
@@ -46,7 +55,7 @@ const user = { fullName: 'Adriana Arias' }
 
 .header-left {
   align-self: auto;
-  flex-grow: 1;
+  flex: 1;
   max-width: 55.22%;
 }
 

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, computed, ref } from 'vue'
 import Header from '../components/Header.vue'
 import Dialog from '../components/dialog.vue'
 import TableCount from '../components/tableCount.vue'
 import Table from '../components/table/table.vue'
 import { Product } from '../types'
+import { store } from '../store'
 
-const data = ref<Product[]>([])
 const selectedProduct = ref<Product>()
 
 const tableColumns = ['ID', 'Status', 'Quantity', 'Product name', 'Prices']
@@ -19,11 +19,13 @@ const handleSelectedRow = (value: Product) => {
   selectedProduct.value =value
 }
 
+const data = computed(() => store.searchTerm.length > 0 ? store.results : store.data)
+
 onMounted(async () => {
   try {
     const response = await fetch('../data.json')
     const results = await response.json()
-    data.value = results
+    store.data = results
   } catch (error) {
     console.error('Error fetching data! This message would show in a toast message but is not within scope')
   }
@@ -35,7 +37,7 @@ onMounted(async () => {
     <Header />
 
     <TableCount :count="data.length" />
-    
+
     <Table :columns="tableColumns" :data="data" :selected-row="handleSelectedRow" />
 
     <Dialog v-if="!!selectedProduct" :title="selectedProduct?.product" :handle-close="handleClose" />

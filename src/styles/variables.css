@@ -20,4 +20,6 @@
   --icon-size: 18px;
 
   --table-border: 1px solid var(--grey-light);
+
+  --outline: 1px solid var(--primary-main);
 }

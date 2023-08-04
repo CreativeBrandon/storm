@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, VueElement } from 'vue'
+import { onMounted, ref } from 'vue'
 import Button from '../components/buttons/button.vue'
 import Close from '../components/icons/iconClose.vue'
 
@@ -9,16 +9,26 @@ interface DialogProps {
 }
 
 const { title = '', handleClose } = defineProps<DialogProps>()
-const closeRef = ref<VueElement>()
+const closeRef = ref<{ button: HTMLButtonElement }>()
+
+onMounted(() => {
+  closeRef.value?.button.focus()
+})
 </script>
 
 <template>
-  <dialog id="dialog" :class="{ dialog: true }">
+  <dialog id="dialog" class="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
     <div class="dialog-wrapper">
       <div class="dialog-container">
         <header class="dialog-header">
-          <h6 class="dialog-title">{{ title }}</h6>
-          <Button ref="closeRef" title="close dialog" @click="handleClose">
+          <h6 id="dialog-title" class="dialog-title">{{ title }}</h6>
+          <Button
+            id="dialog-header-close"
+            ref="closeRef"
+            title="close dialog"
+            @click="handleClose"
+            aria-controls="dialog"
+          >
             <template #start><Close /></template>
           </Button>
         </header>
@@ -27,7 +37,7 @@ const closeRef = ref<VueElement>()
             <img class="content-image" src="../assets/tech-1.png" alt="MacBook Pro" />
           </div>
 
-          <div class="content-area center">
+          <div id="dialog-description" class="content-area center">
             <h6 class="content-area-title">Key Features</h6>
             <ul>
               <li>2.6 GHz Intel Core i7 6-Core (9th Gen)</li>
@@ -45,7 +55,14 @@ const closeRef = ref<VueElement>()
         </section>
 
         <footer class="dialog-footer">
-          <Button class="button-secondary" title="close dialog" @click="handleClose">Close</Button>
+          <Button
+            id="dialog-footer-close"
+            class="button-secondary"
+            title="close dialog"
+            @click="handleClose"
+            aria-controls="dialog"
+            >Close</Button
+          >
         </footer>
       </div>
     </div>

@@ -1,12 +1,19 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+
 interface ButtonProps {
   title?: string
 }
 const { title = 'button' } = defineProps<ButtonProps>()
+const button = ref()
+
+defineExpose({
+  button
+})
 </script>
 
 <template>
-  <button type="button" class="button" :title="title">
+  <button ref="button" type="button" class="button" :title="title">
     <template v-if="$slots.start">
       <div class="button-icon-container center"><slot name="start"></slot></div>
     </template>
@@ -66,7 +73,7 @@ button {
 
   &:hover,
   &:focus {
-    color: #FFF;
+    color: #fff;
     background-color: var(--primary-dark);
   }
 }

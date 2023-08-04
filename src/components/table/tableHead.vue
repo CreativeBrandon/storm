@@ -5,8 +5,8 @@ const { columns = [] } = defineProps<{ columns?: string[] }>()
 <template>
   <thead class="table-head">
     <tr>
-      <template v-for="column in columns">
-        <th>{{ column }}</th>
+      <template v-for="column in columns" :key="column">
+        <th scope="col">{{ column }}</th>
       </template>
     </tr>
   </thead>

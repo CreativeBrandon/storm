@@ -2,10 +2,14 @@
 import Status from '../status.vue'
 import { Product } from '../../types'
 const { item, selectedRow = null } = defineProps<{ item: Product; selectedRow?: (item: Product) => void }>()
+
+const handleKeyPress = (e: KeyboardEvent) => {
+  if (e.key === "Enter" && selectedRow) selectedRow(item)
+}
 </script>
 
 <template>
-  <tr class="table-body-row" @click="() => selectedRow(item)">
+  <tr class="table-body-row" @keypress="handleKeyPress" @click="() => selectedRow(item)" role="button" tabindex="0">
     <td class="cell-id">{{ item.id }}</td>
     <td class="cell-id"><Status :status="item.status" /></td>
     <td class="cell-id">{{ item.quantity }}</td>
@@ -24,6 +28,12 @@ const { item, selectedRow = null } = defineProps<{ item: Product; selectedRow?: 
 
 tr {
   border-bottom: var(--table-border);
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    outline: var(--outline);
+  }
 }
 
 td:nth-child(1) {

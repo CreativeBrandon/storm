@@ -17,7 +17,7 @@ const { columns, data = [], selectedRow } = defineProps<TableProps>()
     <TableHead :columns="columns" />
 
     <tbody class="table-body">
-      <template v-for="item in data">
+      <template v-for="item in data" :key="item.id">
         <TableBodyRow :item="item" :selected-row="selectedRow" />
       </template>
     </tbody>

@@ -27,7 +27,7 @@ body,
 
 a:focus,
 button:focus {
-  outline: 1px solid var(--primary-main);
+  outline: var(--outline);
 }
 
 .round {

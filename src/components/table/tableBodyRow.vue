@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import Status from '../status.vue'
 import { Product } from '../../types'
-const { item } = defineProps<{ item: Product }>()
+const { item, selectedRow = null } = defineProps<{ item: Product; selectedRow?: (item: Product) => void }>()
 </script>
 
 <template>
-  <tr class="table-body-row">
+  <tr class="table-body-row" @click="() => selectedRow(item)">
     <td class="cell-id">{{ item.id }}</td>
     <td class="cell-id"><Status :status="item.status" /></td>
     <td class="cell-id">{{ item.quantity }}</td>

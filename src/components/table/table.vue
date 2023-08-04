@@ -3,7 +3,13 @@ import { Product } from '../../types'
 import TableHead from './tableHead.vue'
 import TableBodyRow from './tableBodyRow.vue'
 
-const { columns, data = [] } = defineProps<{ columns?: string[]; data: Product[] }>()
+interface TableProps {
+  columns?: string[]
+  data: Product[]
+  selectedRow?: (item: Product) => void
+}
+
+const { columns, data = [], selectedRow } = defineProps<TableProps>()
 </script>
 
 <template>
@@ -12,7 +18,7 @@ const { columns, data = [] } = defineProps<{ columns?: string[]; data: Product[]
 
     <tbody class="table-body">
       <template v-for="item in data">
-        <TableBodyRow :item="item" />
+        <TableBodyRow :item="item" :selected-row="selectedRow" />
       </template>
     </tbody>
   </table>

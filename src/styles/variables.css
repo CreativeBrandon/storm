@@ -10,4 +10,8 @@
 
   --fc-primary: #1a1a1a;
   --fc-secondary: #808080;
+
+  --grey-light: #e4e4ef;
+
+  --table-border: 1px solid var(--grey-light);
 }

@@ -2,9 +2,12 @@
 import { onMounted, ref } from 'vue'
 import Header from '../components/Header.vue'
 import TableCount from '../components/tableCount.vue'
+import Table from '../components/table/table.vue'
 import { Product } from '../types'
 
 const data = ref<Product[]>([])
+
+const tableColumns = ['ID', 'Status', 'Quantity', 'Product name', 'Prices']
 
 onMounted(async () => {
   try {
@@ -22,6 +25,7 @@ onMounted(async () => {
     <Header />
 
     <TableCount :count="data.length" />
+    <Table :columns="tableColumns" :data="data" />
   </main>
 </template>
 

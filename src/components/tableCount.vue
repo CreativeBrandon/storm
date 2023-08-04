@@ -17,7 +17,6 @@ h2 {
   line-height: 20px;
   margin-right: 10px;
   letter-spacing: 0em;
-  color: var(--fc-primary);
 }
 .count {
   color: var(--fc-secondary);

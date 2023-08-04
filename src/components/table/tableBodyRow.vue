@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Status from '../status.vue'
 import { Product } from '../../types'
 const { item } = defineProps<{ item: Product }>()
 </script>
@@ -6,7 +7,7 @@ const { item } = defineProps<{ item: Product }>()
 <template>
   <tr class="table-body-row">
     <td class="cell-id">{{ item.id }}</td>
-    <td class="cell-id">{{ item.status }}</td>
+    <td class="cell-id"><Status :status="item.status" /></td>
     <td class="cell-id">{{ item.quantity }}</td>
     <td class="cell-id">
       <div class="font-primary">{{ item.product }}</div>

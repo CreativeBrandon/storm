@@ -3,15 +3,21 @@
   --primary-dark: #344293;
   --secondary-main: #f9f9fb;
 
-  --red: #c72549;
-
-  --button-size: 44px;
-  --icon-size: 18px;
-
   --fc-primary: #1a1a1a;
   --fc-secondary: #808080;
 
   --grey-light: #e4e4ef;
+  --green: #31aa27;
+  --green-light: #ebf6eb;
+  --orange: #e99518;
+  --orange-light: #fff4e4;
+  --red-medium: #f93232;
+  --red-light: #fff0f0;
+  --red: #c72549;
+  --violet: #ededfe;
+
+  --button-size: 44px;
+  --icon-size: 18px;
 
   --table-border: 1px solid var(--grey-light);
 }

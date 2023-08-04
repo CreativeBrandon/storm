@@ -41,7 +41,7 @@ const user = { fullName: 'Adriana Arias' }
   display: flex;
   flex-flow: row;
   align-items: center;
-  margin-top: 80px;
+  margin: 80px 0 76px;
 }
 
 .header-left {

@@ -3,8 +3,11 @@
   --primary-dark: #344293;
   --secondary-main: #f9f9fb;
 
-  --red: #C72549;
+  --red: #c72549;
 
   --button-size: 44px;
   --icon-size: 18px;
+
+  --fc-primary: #1a1a1a;
+  --fc-secondary: #808080;
 }

@@ -181,7 +181,9 @@ h6 {
   }
   .dialog-wrapper {
     display: block;
-    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
   }
 
   .dialog-container {

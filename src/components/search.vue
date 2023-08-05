@@ -12,13 +12,14 @@ const { onChange, defaultValue = '' } = defineProps<SearchProps>()
 
 const term = ref('')
 
+const handleSearch = () => {
+  onChange(term.value)
+}
+
 const setTerm = (e: Events['onKeyup']) => {
   const value = (e.target as undefined | HTMLInputElement)?.value || ''
   term.value = value
-}
-
-const handleSearch = () => {
-  onChange(term.value)
+  if (value.length === 0) handleSearch()
 }
 </script>
 

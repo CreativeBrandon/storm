@@ -2,6 +2,7 @@
 import Button from './buttons/button.vue'
 import NotificationIcon from './icons/notification.vue'
 import SettingsIcon from './icons/settings.vue'
+import MenuIcon from './icons/iconMenu.vue'
 import UserIcon from './icons/iconUser.vue'
 import Logo from './icons/logo.vue'
 import Search from './search.vue'
@@ -21,15 +22,19 @@ const handleSearch = (term: string) => {
       <Logo />
     </div>
 
+    <Button title="Menu" class="center icon menu">
+      <MenuIcon />
+    </Button>
+
     <div class="header-center">
       <Search :onChange="handleSearch" />
     </div>
 
     <div class="header-right">
-      <Button title="Settings" class="center icon settings">
+      <Button title="Settings" class="center icon">
         <SettingsIcon />
       </Button>
-      <Button title="New message!" class="center icon notifications">
+      <Button title="New message!" class="center icon">
         <NotificationIcon :has-message="true" />
       </Button>
 
@@ -83,5 +88,37 @@ const handleSearch = (term: string) => {
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.02em;
+}
+
+button.menu {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  button.menu {
+    display: flex;
+    gap: 4px;
+  }
+
+  .header-left {
+    max-width: unset;
+  }
+
+  .layout-header {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .header-center {
+    max-width: unset;
+    flex: 0 0 100%;
+  }
+
+  .header-right {
+    display: none;
+  }
+
+  .search-box {
+    flex: 1;
+  }
 }
 </style>

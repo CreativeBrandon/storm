@@ -19,24 +19,14 @@ const { columns = [] } = defineProps<{ columns?: string[] }>()
   border: var(--table-border);
 }
 
-th:nth-child(1) {
-  max-width: 43.5px;
-}
-
-th:nth-child(2) {
-  text-align: center;
-}
-
-th:nth-child(3) {
-  text-align: center;
-}
-
-th:nth-child(4) {
+th:nth-child(2),
+th:nth-child(3),
+th:nth-child(4),
+th:nth-child(5) {
   text-align: center;
 }
 
 th:nth-child(5) {
-  text-align: center;
   border-left: var(--table-border);
 }
 

@@ -36,10 +36,6 @@ tr {
   }
 }
 
-td:nth-child(1) {
-  max-width: 76px;
-}
-
 td:nth-child(2) {
   text-align: center;
   max-width: 144px;

@@ -116,7 +116,7 @@ onMounted(() => {
 }
 
 .dialog-footer {
-  display: grid;
+  display: flex;
   justify-content: flex-end;
   margin-top: 65px;
 }
@@ -171,5 +171,38 @@ h6 {
   line-height: 25px;
   letter-spacing: 0em;
   text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+  .dialog {
+    background-color: transparent;
+    top: 128px;
+    padding: 0;
+  }
+  .dialog-wrapper {
+    display: block;
+    height: 100%;
+  }
+
+  .dialog-container {
+    height: 100%;
+  }
+
+  .dialog-content {
+    display: block;
+    max-height: unset;
+  }
+
+  .dialog-title {
+    text-align: center;
+  }
+
+  .content-area {
+    flex: 0 0 100%;
+  }
+
+  .button-secondary {
+    width: 100%;
+  }
 }
 </style>

@@ -16,10 +16,10 @@ const handleClose = () => {
 }
 
 const handleSelectedRow = (value: Product) => {
-  selectedProduct.value =value
+  selectedProduct.value = value
 }
 
-const data = computed(() => store.searchTerm.length > 0 ? store.results : store.data)
+const data = computed(() => (store.searchTerm.length > 0 ? store.results : store.data))
 
 onMounted(async () => {
   try {
@@ -33,7 +33,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <main :class="{ container: true, 'modal-open': !!selectedProduct }">
+  <main class="container">
     <Header />
 
     <TableCount :count="data.length" />
@@ -43,3 +43,11 @@ onMounted(async () => {
     <Dialog v-if="!!selectedProduct" :title="selectedProduct?.product" :handle-close="handleClose" />
   </main>
 </template>
+
+<style scoped>
+@media screen and (max-width: 1186px) {
+  .container {
+    padding: 0 26px;
+  }
+}
+</style>
